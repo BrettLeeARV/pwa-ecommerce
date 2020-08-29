@@ -1,4 +1,4 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
+//importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 
 self.addEventListener('install', event => {
     self.skipWaiting();   
@@ -67,7 +67,8 @@ if (workbox) {
   }
 ]);
     workbox.routing.registerRoute(
-        ({url}) => url.pathname.startsWith('/images/products/'),
+        const relEndpoint = document.getElementsByTag('Base')[0].href;
+        ({url}) => url.pathname.startsWith(relEndpoint + '/images/products/'),
         workbox.strategies.cacheFirst({
             cacheName: 'products-cache',
             plugin: [

@@ -2,7 +2,7 @@
     "name": "Modern Furniture Store",
     "short_name": "Furniture Store",
     "lang": "en-US",
-    "start_url": "/index.html",
+    "start_url": "/pwa-ecommerce/index.html",
     "display": "standalone",
     "theme_color": "#2f3ba2",
     "background_color": "#3e4eb8",

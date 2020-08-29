@@ -67,10 +67,8 @@ if (workbox) {
   }
 ]);
     
-    console.log(url.pathname);
-    
     workbox.routing.registerRoute(        
-        ({url}) => url.pathname.startsWith('/pwa-ecommerce/images/products/'),
+        ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
         workbox.strategies.cacheFirst({
             cacheName: 'products-cache',
             plugin: [

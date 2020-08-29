@@ -66,8 +66,8 @@ if (workbox) {
     "revision": "d2cb0dda3e8313b990e8dcf5e25d2d0f"
   }
 ]);
-    workbox.routing.registerRoute(
-        const relEndpoint = document.getElementsByTag('Base')[0].href;
+    const relEndpoint = document.getElementsByTag('Base')[0].href;
+    workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith(relEndpoint + '/images/products/'),
         workbox.strategies.cacheFirst({
             cacheName: 'products-cache',

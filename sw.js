@@ -67,6 +67,8 @@ if (workbox) {
   }
 ]);
     
+    console.log(url.pathname);
+    
     workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith('/pwa-ecommerce/images/products/'),
         workbox.strategies.cacheFirst({

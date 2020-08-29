@@ -66,9 +66,9 @@ if (workbox) {
     "revision": "d2cb0dda3e8313b990e8dcf5e25d2d0f"
   }
 ]);
-    const relEndpoint = document.getElementsByTag('Base')[0].href;
+    
     workbox.routing.registerRoute(        
-        ({url}) => url.pathname.startsWith(relEndpoint + '/images/products/'),
+        ({url}) => url.pathname.startsWith('/pwa-ecommerce/images/products/'),
         workbox.strategies.cacheFirst({
             cacheName: 'products-cache',
             plugin: [

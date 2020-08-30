@@ -70,7 +70,7 @@ if (workbox) {
     
     workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
-        workbox.strategies.cacheFirst({
+        new CacheFirst({
             cacheName: 'products-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -82,7 +82,7 @@ if (workbox) {
     );
     workbox.routing.registerRoute(
         new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
-        workbox.strategies.staleWhileRevalidate({
+        new StaleWhileRevalidate({
             cacheName: 'fonts-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -94,7 +94,7 @@ if (workbox) {
     );
     workbox.routing.registerRoute(
         new RegExp('https://code.getmdl.io/(.*)'),
-        workbox.strategies.staleWhileRevalidate({
+        new StaleWhileRevalidate({
             cacheName: 'mdl-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({

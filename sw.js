@@ -70,7 +70,7 @@ if (workbox) {
     
     workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
-        new CacheFirst({
+        new workbox-strategies.CacheFirst({
             cacheName: 'products-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({

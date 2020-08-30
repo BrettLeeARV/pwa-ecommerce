@@ -73,7 +73,7 @@ if (workbox) {
         workbox.strategies.cacheFirst({
             cacheName: 'products-cache',
             plugin: [
-                new workbox.cacheableResponse.Plugin({
+                new workbox.cacheableResponse.CacheableResponsePlugin({
                     maxEntries: 50,
                     naxAgeSeconds: 30*24*60*60  //30 days
                 })
@@ -85,7 +85,7 @@ if (workbox) {
         workbox.strategies.staleWhileRevalidate({
             cacheName: 'fonts-cache',
             plugin: [
-                new workbox.cacheableResponse.Plugin({
+                new workbox.cacheableResponse.CacheableResponsePlugin({
                     maxEntries: 50,
                     naxAgeSeconds: 21*24*60*60  //21 days
                 })
@@ -97,7 +97,7 @@ if (workbox) {
         workbox.strategies.staleWhileRevalidate({
             cacheName: 'mdl-cache',
             plugin: [
-                new workbox.cacheableResponse.Plugin({
+                new workbox.cacheableResponse.CacheableResponsePlugin({
                     maxEntries: 50,
                     naxAgeSeconds: 23*24*60*60  //23 days
                 })

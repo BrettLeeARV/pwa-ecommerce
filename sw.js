@@ -1,8 +1,6 @@
 //importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-import {CacheFirst, StaleWhileRevalidate} from 'workbox-strategies';
-
 self.addEventListener('install', event => {
     self.skipWaiting();   
 });
@@ -72,7 +70,7 @@ if (workbox) {
     
     workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
-        new CacheFirst({
+        new workbox.strategies.CacheFirst({
             cacheName: 'products-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -84,7 +82,7 @@ if (workbox) {
     );
     workbox.routing.registerRoute(
         new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
-        new StaleWhileRevalidate({
+        new workbox.strategies.StaleWhileRevalidate({
             cacheName: 'fonts-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -96,7 +94,7 @@ if (workbox) {
     );
     workbox.routing.registerRoute(
         new RegExp('https://code.getmdl.io/(.*)'),
-        new StaleWhileRevalidate({
+        new workbox.strategies.StaleWhileRevalidate({
             cacheName: 'mdl-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({

@@ -1,4 +1,3 @@
-//importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
 self.addEventListener('install', event => {
@@ -20,11 +19,11 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "37f836d0794f76c9de2df859bf7ebb78"
+    "revision": "0b736aa633d0f05a60abc86d24e780ee"
   },
   {
     "url": "scripts/main.min.js",
-    "revision": "cd1263e40c0fe2a691497b71000ceb10"
+    "revision": "49d52a383ddfa17bc040fde8d05ef5d1"
   },
   {
     "url": "images/touch/apple-touch-icon.png",

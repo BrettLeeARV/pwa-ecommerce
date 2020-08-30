@@ -1,6 +1,8 @@
 //importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
+import {CacheFirst, StaleWhileRevalidate} from 'workbox-strategies';
+
 self.addEventListener('install', event => {
     self.skipWaiting();   
 });
@@ -70,7 +72,7 @@ if (workbox) {
     
     workbox.routing.registerRoute(        
         ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
-        new workbox-strategies.CacheFirst({
+        new CacheFirst({
             cacheName: 'products-cache',
             plugin: [
                 new workbox.cacheableResponse.CacheableResponsePlugin({

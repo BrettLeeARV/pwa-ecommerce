@@ -67,15 +67,14 @@ if (workbox) {
     "revision": "d2cb0dda3e8313b990e8dcf5e25d2d0f"
   }
 ]);
-    
-    workbox.routing.registerRoute(        
-        ({url}) => url.pathname.startsWith('https://www.pinecodetech.com/pwa-ecommerce/images/products/'),
+    workbox.routing.registerRoute(
+        ({url}) => url.pathname.startsWith('/images/products/'),
         new workbox.strategies.CacheFirst({
             cacheName: 'products-cache',
             plugin: [
-                new workbox.cacheableResponse.CacheableResponsePlugin({
+                new workbox.expiration.ExpirationPlugin({
                     maxEntries: 50,
-                    naxAgeSeconds: 30*24*60*60  //30 days
+                    maxAgeSeconds: 30*24*60*60  //30 days
                 })
             ]
         })
@@ -85,9 +84,9 @@ if (workbox) {
         new workbox.strategies.StaleWhileRevalidate({
             cacheName: 'fonts-cache',
             plugin: [
-                new workbox.cacheableResponse.CacheableResponsePlugin({
+                new workbox.expiration.ExpirationPlugin({
                     maxEntries: 50,
-                    naxAgeSeconds: 21*24*60*60  //21 days
+                    maxAgeSeconds: 21*24*60*60  //21 days
                 })
             ]
         })
@@ -97,9 +96,9 @@ if (workbox) {
         new workbox.strategies.StaleWhileRevalidate({
             cacheName: 'mdl-cache',
             plugin: [
-                new workbox.cacheableResponse.CacheableResponsePlugin({
+                new workbox.expiration.ExpirationPlugin({
                     maxEntries: 50,
-                    naxAgeSeconds: 23*24*60*60  //23 days
+                    maxAgeSeconds: 23*24*60*60  //23 days
                 })
             ]
         })
